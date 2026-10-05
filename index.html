@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juan & Alejandra · Apartashower</title>
+<meta property="og:title" content="Juan & Alejandra estrenan hogar">
+<meta property="og:description" content="Te invitamos a nuestro apartashower el domingo 22 de noviembre de 2026, 3:00 p.m.">
+<!-- VISTA PREVIA: cambia 1015458643 por tu usuario de GitHub (y "apartashower" si tu repositorio se llama distinto) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1015458643.github.io/apartashower/">
+<meta property="og:image" content="https://1015458643.github.io/apartashower/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#0bbbfa; --sky-deep:#0a7fae; --sky-soft:#d9f4fe; --grey:#a6aaac; --mist:#eef4f7;
+  --ink:#1f3440; --paper:#ffffff; --line:#d5dde1;
+  --serif:'Cormorant Garamond', 'Garamond', Georgia, serif;
+  --script:'Great Vibes', 'Segoe Script', cursive;
+  --sans:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --hand:'Great Vibes', 'Segoe Script', cursive;
+  --b1:rgba(227,245,253,.92);--b2:rgba(255,255,255,.92);--b3:rgba(236,238,239,.94);--b4:rgba(216,241,252,.95);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(20,52,68,.92);--b2:rgba(27,46,56,.92);--b3:rgba(33,40,44,.94);--b4:rgba(16,58,78,.95); }
+}
+:root[data-theme="dark"]{ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(20,52,68,.92);--b2:rgba(27,46,56,.92);--b3:rgba(33,40,44,.94);--b4:rgba(16,58,78,.95); }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+html,body{margin:0;height:100%}
+body{background:var(--mist);color:var(--ink);font-family:var(--sans);font-size:16px;font-weight:300;line-height:1.7;letter-spacing:.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button,a,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.hidden{display:none!important}
+
+/* ---------- Fondo vivo: burbujas que flotan ---------- */
+#bubbles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+#bubbles .h{position:absolute;bottom:-90px;opacity:0;animation:rise linear infinite}
+#bubbles .h svg{display:block;width:100%;height:100%;animation:sway 4s ease-in-out infinite alternate}
+@keyframes rise{
+  0%{transform:translateY(0) rotate(var(--r0));opacity:0}
+  12%{opacity:var(--op)}
+  85%{opacity:var(--op)}
+  100%{transform:translateY(-120vh) rotate(var(--r1));opacity:0}
+}
+@keyframes sway{from{transform:translateX(calc(var(--dx)*-1))}to{transform:translateX(var(--dx))}}
+
+.btn{letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.5em;border:0;border-radius:999px;padding:.95em 1.8em;background:var(--sky);color:#06293a;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s}
+.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 10px 24px -10px rgba(11,187,250,.9)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--grey)}
+.btn.shine::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+
+/* ---------- Pantalla inicial ---------- */
+#intro{position:fixed;inset:0;display:grid;place-items:center;text-align:center;padding:24px;z-index:30}
+#intro h1{font-family:var(--script);font-weight:400;font-size:clamp(3rem,12vw,4.6rem);line-height:1.1;margin:0 0 .5em}
+.word{display:inline-block;opacity:0;transform:translateY(.6em) rotate(4deg);animation:wordIn .7s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes wordIn{to{opacity:1;transform:none}}
+#intro p{color:var(--grey);margin:0 0 2rem;opacity:0;animation:fade .8s 1.6s forwards}
+#intro .btn{opacity:0;animation:fade .8s 2s forwards, pulse 2.4s 3s ease-in-out infinite}
+@keyframes fade{to{opacity:1}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(11,187,250,.55)}50%{box-shadow:0 0 0 16px rgba(11,187,250,0)}}
+.heart-beat{display:inline-block;color:var(--sky);animation:beat 1.2s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}}
+
+/* ---------- Secuencia de fotos ---------- */
+#story{position:fixed;inset:0;background:#0d1a21;z-index:20;overflow:hidden;touch-action:manipulation}
+.bars{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));left:14px;right:14px;display:flex;gap:5px;z-index:3}
+.bars span{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden}
+.bars i{display:block;height:100%;width:0;background:#fff}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease, transform 1s ease;transform:scale(1.04)}
+.slide.on{opacity:1;transform:none}
+.slide .img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.15)}
+.slide.on .img{animation:kb 6s ease-out forwards}
+@keyframes kb{to{transform:scale(1) translate(-1.5%,-1%)}}
+.slide .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.5);background:linear-gradient(160deg,#0a7fae,#0d1a21 70%)}
+.slide .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,20,.9) 0%,rgba(5,15,20,0) 60%)}
+.cap{position:absolute;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));padding:0 28px;color:#fff;max-width:640px;margin:0 auto}
+.cap > *{opacity:0;transform:translateY(24px)}
+.slide.on .cap > *{animation:capIn .8s cubic-bezier(.2,.8,.2,1) forwards}
+.slide.on .cap h2{animation-delay:.25s}
+.slide.on .cap p{animation-delay:.5s}
+@keyframes capIn{to{opacity:1;transform:none}}
+.cap small{display:block;color:var(--sky);font-family:var(--script);font-size:1.9rem;line-height:1;margin-bottom:.3rem}
+.cap h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,6vw,2.9rem);line-height:1.1;margin:0 0 .4rem}
+.cap p{margin:0;color:rgba(255,255,255,.85);max-width:34ch}
+.skip{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:3;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);color:#fff;border:0;border-radius:999px;padding:.5em 1.1em;cursor:pointer}
+.hint{position:absolute;left:18px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:3;color:rgba(255,255,255,.6);font-size:.85rem;animation:blink 2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* ---------- Sobre ---------- */
+#envelopeScreen{position:fixed;inset:0;display:grid;place-items:center;padding:20px;z-index:10;text-align:center}
+.env-card{position:relative;overflow:hidden;width:min(440px,100%);min-height:min(660px,92vh);display:grid;align-content:center;justify-items:center;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:56px 24px;box-shadow:0 30px 60px -40px rgba(10,60,90,.45);animation:cardIn .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px) scale(.97)}}
+.corner{position:absolute;width:120px;height:120px;pointer-events:none}
+.corner.tl{top:-14px;left:-14px}
+.corner.br{bottom:-14px;right:-14px;transform:rotate(180deg)}
+.corner .leaf{transform-origin:20px 20px;animation:leafSway 5s ease-in-out infinite alternate}
+@keyframes leafSway{to{transform:rotate(6deg)}}
+.env-kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:#6b7f8a;margin:0 0 .4rem;opacity:0;animation:fade .8s .3s forwards}
+.env-title{max-width:12ch;font-family:'Great Vibes',var(--hand);font-weight:400;font-size:clamp(2.6rem,11vw,3.4rem);line-height:1.1;color:#3d5563;margin:0 0 2rem;opacity:0;animation:capIn 1s .5s forwards;transform:translateY(16px)}
+:root[data-theme="dark"] .env-title{max-width:12ch;color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .env-title{max-width:12ch;color:var(--ink)}}
+
+.envelope{--env:#6f9fb5;--env-d:#55879e;--env-dd:#467489;position:relative;width:min(300px,78vw);aspect-ratio:3/2;border:0;padding:0;background:var(--env-d);cursor:pointer;perspective:1000px;box-shadow:0 26px 40px -22px rgba(20,60,85,.55);animation:arrive 1.1s .7s cubic-bezier(.2,.8,.2,1) backwards, bob 3.8s 1.8s ease-in-out infinite}
+@keyframes arrive{from{transform:translateY(80px) rotate(-8deg) scale(.8);opacity:0}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.envelope.open{animation:none}
+.envelope .letter{position:absolute;left:7%;right:7%;top:6%;height:88%;background:#fff;border-radius:6px;display:grid;align-content:center;justify-items:center;gap:.35rem;padding:10px;color:#3d5563;box-shadow:0 2px 6px rgba(0,0,0,.12);transition:transform 1s .45s cubic-bezier(.3,1.25,.4,1);z-index:1}
+.letter .l-names{font-family:'Great Vibes',var(--hand);font-size:1.9rem;line-height:1.1}
+.letter .l-date{font-size:.72rem;letter-spacing:.12em;color:var(--grey)}
+.letter .l-sub{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky-deep);margin-top:.4rem}
+.letter .l-names,.letter .l-date,.letter .l-sub{opacity:0;transform:translateY(8px);transition:opacity .6s, transform .6s}
+.envelope.open.lift .letter{z-index:7;transform:translateY(-34%) scale(1.22);box-shadow:0 30px 50px -20px rgba(20,60,85,.45);transition:transform .9s cubic-bezier(.2,.8,.2,1), box-shadow .9s}
+.envelope.lift .letter > *{opacity:1;transform:none}
+.envelope.lift .letter .l-date{transition-delay:.35s}
+.envelope.lift .letter .l-sub{transition-delay:.6s}
+.envelope .side{position:absolute;inset:0;z-index:2;background:
+  linear-gradient(to top right,#6597ad 49.6%,transparent 50%) left/50.5% 100% no-repeat,
+  linear-gradient(to top left,#6597ad 49.6%,transparent 50%) right/50.5% 100% no-repeat,
+  linear-gradient(to top right,var(--env) 49.6%,transparent 50%) left/50.5% 100% no-repeat,
+  linear-gradient(to top left,var(--env) 49.6%,transparent 50%) right/50.5% 100% no-repeat, var(--env-d)}
+.envelope .bottom{position:absolute;left:0;right:0;bottom:0;height:60%;z-index:3;background:linear-gradient(to bottom,var(--env-d),var(--env-dd));clip-path:polygon(0 100%,50% 0,100% 100%)}
+.envelope .flap{position:absolute;left:0;right:0;top:0;height:62%;z-index:4;background:linear-gradient(to bottom,#7fadc2,var(--env));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease, z-index 0s .35s;filter:drop-shadow(0 3px 3px rgba(0,0,0,.18))}
+.envelope .stamp{position:absolute;right:5%;top:8%;width:44px;height:52px;z-index:5;background:#fff;border:2px dashed #e1b54a;outline:3px solid #fff;display:grid;place-items:center;align-content:center;gap:2px;font-size:.55rem;letter-spacing:.08em;color:#8a5a2b;transform:rotate(4deg);transition:opacity .3s}
+.envelope .stamp svg{width:20px;height:20px}
+.envelope .seal{position:absolute;left:50%;top:62%;width:64px;height:64px;transform:translate(-50%,-50%);z-index:6;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fbe7a1,#e2b745 45%,#b98a1f 100%);
+  box-shadow:0 4px 10px rgba(0,0,0,.3), inset 0 0 0 4px rgba(255,255,255,.18), inset 0 0 0 7px rgba(140,100,20,.35);
+  display:grid;place-items:center;font-family:var(--serif);font-size:1.05rem;color:#5a3f0c;text-shadow:0 1px 0 rgba(255,240,190,.7);
+  transition:transform .5s, opacity .5s;animation:sealShine 3s ease-in-out infinite}
+@keyframes sealShine{50%{filter:brightness(1.12)}}
+.envelope.open .flap{transform:rotateX(180deg);z-index:0}
+.envelope.open .seal{transform:translate(-50%,-50%) scale(1.5) rotate(20deg);opacity:0}
+.envelope.open .stamp{opacity:0}
+.envelope.open .letter{transform:translateY(-62%)}
+
+.env-cta{display:grid;justify-items:center;gap:.5rem;margin-top:2.2rem;opacity:0;animation:fade .8s 1.6s forwards}
+.env-cta svg{width:64px;height:20px}
+.env-cta svg path{stroke-dasharray:4 5;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+.env-cta span{font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:#6b7f8a}
+#envelopeScreen.leave{animation:leave .7s ease-in forwards}
+@keyframes leave{to{opacity:0;transform:scale(1.08)}}
+
+/* ---------- Confeti ---------- */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+/* ---------- Invitación ---------- */
+#invite{position:relative;z-index:1}
+.hero{padding-left:22px!important;padding-right:22px!important}
+.wrap{max-width:680px;margin:0 auto}
+.band{position:relative;padding:84px 22px;transition:background-color .6s}
+.band-1{background:linear-gradient(to bottom,transparent,var(--b1) 120px)}
+.band-2{background:linear-gradient(to bottom,var(--b1),var(--b2) 120px)}
+.band-3{background:linear-gradient(to bottom,var(--b2),var(--b3) 120px)}
+.band-4{background:linear-gradient(to bottom,var(--b3),var(--b4) 140px);padding-bottom:60px}
+.kicker{display:block;font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:.6rem}
+.ornament{display:block;width:120px;height:14px;margin:1.2rem auto 0}
+.hero{min-height:100vh;min-height:100svh;display:grid;align-content:center;justify-items:center;text-align:center;padding:40px 0}
+.hero .house{width:96px;height:96px;margin-bottom:1.2rem}
+.hero .house .draw{stroke-dasharray:200;stroke-dashoffset:200;animation:draw 1.4s .2s ease-out forwards}
+.hero .house .draw2{animation-delay:.8s}
+.hero .house .heart{transform-origin:42px 52px;transform:scale(0);animation:pop .6s 1.8s cubic-bezier(.3,1.8,.5,1) forwards, beat 1.4s 2.6s ease-in-out infinite}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{transform:scale(1)}}
+.hero h1{font-family:var(--script);font-weight:400;font-size:clamp(3.6rem,16vw,6.8rem);line-height:1;margin:0;color:var(--ink)}
+.hero h1 .ch{display:inline-block;opacity:0;transform:translateY(40px) rotate(-8deg);animation:wordIn .8s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .amp{display:block;color:var(--sky);font-family:var(--serif);font-style:italic;font-size:.45em;margin:.05em 0;opacity:0;animation:ampIn 1s 1.3s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes ampIn{from{opacity:0;transform:scale(.2) rotate(-40deg)}to{opacity:1;transform:none}}
+.hero .lead,.hero .date,.scroll-cue{opacity:0;animation:capIn .9s forwards}
+.hero .lead{font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.4;margin:1.2rem 0 .3rem;max-width:30ch;animation-delay:2.2s;transform:translateY(20px)}
+.hero .date{color:var(--sky-deep);font-weight:500;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin:0;animation-delay:2.5s;transform:translateY(20px)}
+.scroll-cue{margin-top:2.6rem;color:var(--grey);font-size:.9rem;animation-delay:3s!important}
+.scroll-cue .arrow{display:block;margin:.4rem auto 0;width:22px;height:34px;border:2px solid var(--grey);border-radius:12px;position:relative}
+.scroll-cue .arrow::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:var(--sky);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+
+section{text-align:center}
+section p{margin-left:auto;margin-right:auto}
+.details{text-align:left;max-width:460px;margin-left:auto!important;margin-right:auto!important}
+section h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,6vw,2.9rem);line-height:1.1;margin:0 0 1.2rem;letter-spacing:.01em}
+section p{max-width:58ch}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal .stagger > *{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.reveal.in .stagger > *{opacity:1;transform:none}
+
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:1.2rem}
+.count div{background:var(--paper);border-radius:16px;padding:16px 6px;text-align:center;box-shadow:0 12px 24px -18px rgba(10,60,90,.5)}
+.count b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,7vw,2.6rem);line-height:1;color:var(--sky-deep)}
+.count b.tick{animation:tick .45s ease}
+@keyframes tick{0%{transform:translateY(-30%) scale(.9);opacity:.2}100%{transform:none;opacity:1}}
+.count span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+
+.details{display:grid;grid-template-columns:auto 1fr;gap:14px 22px;margin:1.4rem 0 1.8rem}
+.details dt{color:var(--grey);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding-top:.25em}
+.details dd{margin:0;font-family:var(--serif);font-size:1.25rem;font-weight:500;line-height:1.35}
+.map-pin{display:inline-block;animation:hop 1.8s ease-in-out infinite}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+
+.gift{position:relative;overflow:hidden;background:var(--sky);color:#06293a;border-radius:26px;padding:34px 26px;margin:0}
+.gift::before,.gift::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.22);animation:drift 9s ease-in-out infinite}
+.gift::before{width:180px;height:180px;right:-60px;top:-60px}
+.gift::after{width:110px;height:110px;left:-30px;bottom:-40px;animation-delay:-4s}
+@keyframes drift{50%{transform:translate(-20px,18px) scale(1.1)}}
+.gift > *{position:relative}
+.gift h2{color:#06293a;text-align:left;padding-right:52px}
+.gift p{margin:0 0 1.2rem}
+.gift .btn{background:#06293a;color:#fff}
+.gift ol{padding-left:1.2em;margin:0 0 1.6rem}
+.gift li{margin:.3em 0}
+.gift .box{position:absolute;right:22px;top:24px;font-size:2.2rem;animation:wiggle 2.6s ease-in-out infinite}
+@keyframes wiggle{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(-12deg)}85%{transform:rotate(10deg)}92%{transform:rotate(-5deg)}}
+
+.rsvp{text-align:center}
+.rsvp p{margin-left:auto;margin-right:auto}
+.rsvp-form{max-width:440px;margin:1.6rem auto 0;text-align:left;display:grid;gap:.45rem}
+.rsvp-form label{font-size:.92rem;color:var(--grey);margin-top:.6rem}
+.rsvp-form input,.rsvp-form select,.rsvp-form textarea{width:100%;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:.75em .9em;transition:border-color .2s, box-shadow .2s}
+.rsvp-form input:focus,.rsvp-form select:focus,.rsvp-form textarea:focus{border-color:var(--sky);box-shadow:0 0 0 4px var(--sky-soft);outline:none}
+.rsvp-form .q{text-align:center;font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:1.2rem 0 .2rem}
+.yesno{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.yesno .btn[disabled]{opacity:.5;cursor:wait}
+.msg{text-align:center;min-height:1.5em;margin:.4rem 0 0;color:var(--sky-deep)}
+.msg.err{color:#c0392b}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-4px)}}
+#doneNo{max-width:440px;margin:1.6rem auto 0;background:var(--paper);border-radius:22px;padding:28px 24px;animation:pop .6s cubic-bezier(.3,1.6,.5,1);transform:scale(1)}
+#doneYes{max-width:520px;margin:1.6rem auto 0;text-align:left;animation:pop .6s cubic-bezier(.3,1.6,.5,1)}
+#doneYes .steps li{opacity:0;transform:translateX(-14px);animation:capIn .5s forwards}
+#doneYes .steps li:nth-child(1){animation-delay:.5s}#doneYes .steps li:nth-child(2){animation-delay:.7s}#doneYes .steps li:nth-child(3){animation-delay:.9s}
+.no-actions{display:grid;gap:10px;margin-top:1.2rem}
+.see-you{font-family:var(--hand);font-size:1.6rem;color:var(--sky-deep);margin:1rem 0 0;animation:capIn .6s forwards}
+.done-title{font-family:var(--script);font-size:2.4rem!important;line-height:1.1;font-size:1.6rem;margin:0 0 .4rem!important}
+footer{text-align:center;color:var(--sky-deep);padding:20px 22px 70px;font-family:var(--script);font-size:2rem;background:var(--b4)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .word,.hero h1 .ch,.hero h1 .amp,.hero .lead,.hero .date,.scroll-cue,#intro p,#intro .btn,.cap > *,.reveal,.reveal .stagger > *{opacity:1!important;transform:none!important}
+  .hero .house .draw{stroke-dashoffset:0}.hero .house .heart{transform:none}
+  #bubbles{display:none}
+}
+</style>
+</head>
+<body>
+<div id="bubbles" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<!-- 1. Pantalla inicial -->
+<div id="intro">
+  <div>
+    <h1 id="introTitle">Tenemos algo<br>que contarte…</h1>
+    <p>Toca para conocer nuestra historia <span class="heart-beat">♥</span></p>
+    <button class="btn shine" id="startBtn">Ver nuestra historia</button>
+  </div>
+</div>
+
+<!-- 2. Secuencia de fotos -->
+<div id="story" class="hidden" aria-live="polite">
+  <div class="bars" id="bars"></div>
+  <div id="slides"></div>
+  <span class="hint">Toca para avanzar</span>
+  <button class="skip" id="skipBtn">Saltar</button>
+</div>
+
+<!-- 3. Sobre -->
+<div id="envelopeScreen" class="hidden">
+  <div class="env-card">
+    <svg class="corner tl" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="38" cy="38" r="30" fill="#0bbbfa" opacity=".18"/>
+      <circle cx="30" cy="30" r="20" fill="#0a7fae" opacity=".18"/>
+      <circle cx="58" cy="52" r="14" fill="#a6aaac" opacity=".25"/>
+      <circle cx="32" cy="32" r="8" fill="#0a7fae" opacity=".25"/>
+      <g class="leaf"><path d="M14 64c20 2 40 12 52 26" stroke="#7d8a90" stroke-width="1.4" fill="none"/>
+      <ellipse cx="68" cy="88" rx="9" ry="6" fill="#a6aaac" opacity=".7" transform="rotate(-25 68 88)"/>
+      <ellipse cx="92" cy="40" rx="9" ry="6" fill="#a6aaac" opacity=".55" transform="rotate(-40 92 40)"/>
+      <path d="M58 20c16 2 28 10 32 20" stroke="#7d8a90" stroke-width="1.2" fill="none"/></g>
+    </svg>
+    <svg class="corner br" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="38" cy="38" r="30" fill="#0bbbfa" opacity=".18"/>
+      <circle cx="30" cy="30" r="20" fill="#0a7fae" opacity=".18"/>
+      <circle cx="58" cy="52" r="14" fill="#a6aaac" opacity=".25"/>
+      <circle cx="32" cy="32" r="8" fill="#0a7fae" opacity=".25"/>
+      <g class="leaf"><path d="M14 64c20 2 40 12 52 26" stroke="#7d8a90" stroke-width="1.4" fill="none"/>
+      <ellipse cx="68" cy="88" rx="9" ry="6" fill="#a6aaac" opacity=".7" transform="rotate(-25 68 88)"/>
+      <ellipse cx="92" cy="40" rx="9" ry="6" fill="#a6aaac" opacity=".55" transform="rotate(-40 92 40)"/>
+      <path d="M58 20c16 2 28 10 32 20" stroke="#7d8a90" stroke-width="1.2" fill="none"/></g>
+    </svg>
+    <p class="env-kicker">Mensaje especial</p>
+    <h2 class="env-title">Tenemos algo que contarte…</h2>
+    <button class="envelope" id="envelope" aria-label="Abrir la invitación">
+      <div class="letter">
+        <span class="l-names">Juan &amp; Alejandra</span>
+        <span class="l-date">22.11.2026</span>
+        <span class="l-sub">¡Estrenamos hogar!</span>
+      </div>
+      <div class="side"></div>
+      <div class="bottom"></div>
+      <div class="flap"></div>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0a7fae" stroke-width="2" stroke-linejoin="round"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
+        HOGAR
+      </div>
+      <div class="seal" aria-hidden="true">J&amp;A</div>
+    </button>
+    <div class="env-cta" aria-hidden="true">
+      <svg viewBox="0 0 64 20" fill="none"><path d="M4 16C18 4 38 4 54 10" stroke="#e2b745" stroke-width="1.6" stroke-linecap="round"/><path d="M50 5l7 5-8 3" fill="#e2b745"/></svg>
+      <span>Toca el sobre para abrir la invitación</span>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Invitación -->
+<main id="invite" class="hidden">
+  <header class="hero">
+    <svg class="house" viewBox="0 0 84 84" fill="none" aria-hidden="true">
+      <path class="draw" d="M10 40 42 12l32 28" stroke="var(--sky)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="draw draw2" d="M18 34v38h48V34" stroke="var(--grey)" stroke-width="5" stroke-linejoin="round"/>
+      <path class="heart" d="M42 62c-9-6-12-10-12-14a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 4-3 8-12 14Z" fill="var(--sky)"/>
+    </svg>
+    <h1><span class="name" data-delay="0">Juan</span><span class="amp">&</span><span class="name" data-delay="1.5">Alejandra</span></h1>
+    <p class="lead">Estrenamos hogar y queremos celebrarlo contigo en nuestro apartashower.</p>
+    <p class="date">Domingo 22 de noviembre de 2026</p>
+    <p class="scroll-cue">Desliza para ver los detalles<span class="arrow"></span></p>
+  </header>
+
+  <section class="band band-1"><div class="wrap reveal"><span class="kicker">Cuenta regresiva</span>
+    <h2>Falta poco</h2>
+    <div class="count stagger" id="count">
+      <div><b id="d">00</b><span>días</span></div>
+      <div style="transition-delay:.1s"><b id="h">00</b><span>horas</span></div>
+      <div style="transition-delay:.2s"><b id="m">00</b><span>min</span></div>
+      <div style="transition-delay:.3s"><b id="s">00</b><span>seg</span></div>
+    </div>
+  </div></section>
+
+  <section class="band band-2"><div class="wrap reveal"><span class="kicker">Detalles</span>
+    <h2>Dónde y cuándo</h2>
+    <dl class="details">
+      <dt>Fecha</dt><dd>Domingo 22 de noviembre de 2026</dd>
+      <dt>Hora</dt><dd>3:00 p.m.</dd>
+      <dt>Lugar</dt><dd>Salón comunal de la Sociedad San Pedro, barrio Las Ferias</dd>
+      <dt>Dirección</dt><dd>Cra. 69k #7762, Bogotá</dd>
+      <dt>Vestimenta</dt><dd>Ven como te sientas cómodo</dd>
+    </dl>
+    <a class="btn ghost" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Cra.%2069k%20%237762%2C%20Las%20Ferias%2C%20Bogot%C3%A1"><span class="map-pin">📍</span> Ver ubicación en el mapa</a>
+  </div></section>
+
+
+  <section class="rsvp band band-3"><div class="wrap reveal"><span class="kicker">Confirmación</span>
+    <h2>¿Nos acompañas?</h2>
+    <p>Tu compañía es lo más importante. Escribe tu nombre y cuéntanos si podrás venir. Si confirmas, te mostraremos nuestra lista de regalos.</p>
+    <form id="rsvpForm" class="rsvp-form" novalidate>
+      <label for="rName">Tu nombre</label>
+      <input id="rName" name="nombre" autocomplete="name" placeholder="Nombre y apellido" required>
+      <label for="rGuests">¿Cuántas personas vienen contigo? (incluyéndote)</label>
+      <select id="rGuests" name="personas">
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+      </select>
+      <label for="rMsg">Un mensaje para nosotros (opcional)</label>
+      <textarea id="rMsg" name="mensaje" rows="3"></textarea>
+      <p class="q">¿Asistirás al apartashower?</p>
+      <div class="yesno">
+        <button type="button" class="btn" data-answer="Sí">Sí, ahí estaré</button>
+        <button type="button" class="btn ghost" data-answer="No">No podré ir</button>
+      </div>
+      <p class="msg" id="rStatus" role="status"></p>
+    </form>
+    <div id="doneYes" class="hidden">
+      <div class="gift">
+        <span class="box" aria-hidden="true">🎁</span>
+        <h2 id="yesTitle"></h2>
+        <p>Tu asistencia quedó registrada. Te esperamos el domingo 22 de noviembre a las 3:00 p.m.</p>
+        <p>Ahora ayúdanos a armar el nido: hicimos una lista con lo que necesitamos para nuestro hogar.</p>
+        <ol class="steps">
+          <li>Abre la lista y escoge lo que quieras regalarnos.</li>
+          <li>Regístralo con tu nombre.</li>
+          <li>Ese elemento desaparece para los demás invitados.</li>
+        </ol>
+        <a class="btn shine" target="_blank" rel="noopener" data-gift href="#">Elegir mi regalo</a>
+      </div>
+    </div>
+    <div id="doneNo" class="hidden">
+      <p class="done-title" id="noTitle"></p>
+      <p>Gracias por avisarnos. En otra oportunidad nos volveremos a encontrar para celebrar juntos.</p>
+      <p id="giftOffer">Si aun así quieres enviarnos un detalle para el nuevo hogar, puedes escogerlo en nuestra lista.</p>
+      <div class="no-actions">
+        <a class="btn shine" target="_blank" rel="noopener" data-gift href="#">Quiero enviar un regalo</a>
+        <button type="button" class="btn ghost" id="noThanks">Será en otra ocasión</button>
+      </div>
+      <p class="see-you hidden" id="seeYou">¡Nos vemos pronto! Un abrazo, Juan & Alejandra</p>
+    </div>
+  </div></section>
+
+  <footer><svg class="ornament" style="margin:0 auto 1rem" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7h46M74 7h46" stroke="var(--grey)" stroke-width="1"/><path d="M60 2l5 5-5 5-5-5z" fill="var(--sky)"/></svg>Con cariño, Juan & Alejandra</footer>
+</main>
+
+<script>
+
+/* ========= EDITA AQUÍ ========= */
+const FORM_URL = "https://script.google.com/macros/s/AKfycbz_qFMELifauv8RC0iUdElVRqtFTN0X0ea_5RwM0iDEcR0mwvlrriIT07W1G5YspEygyQ/exec";
+const RSVP_URL = "https://script.google.com/macros/s/AKfycbwwgUOORaNcxeMFIudXyovixTvOGaLPHAUxBZRdTuGgI2QJcZ7_Hh728G75pyTTotKX0w/exec";
+const EVENT_DATE = new Date("2026-11-22T15:00:00-05:00");
+const SLIDE_MS = 5000;
+
+/* Fotos de la historia: carpeta "fotos" junto a este archivo.
+   Si una foto no existe, se muestra un fondo azul de reemplazo. */
+const STORY = [
+  { img:"fotos/1.jpg", when:"El comienzo",        title:"Así nos conocimos",      text:"Una historia que empezó sin imaginar todo lo que vendría." },
+  { img:"fotos/2.jpg", when:"Primeros recuerdos", title:"Nuestra primera cita",   text:"Los nervios, las risas y las ganas de volver a vernos." },
+  { img:"fotos/3.jpg", when:"Juntos",             title:"Aventuras de a dos",     text:"Viajes, planes y muchos momentos para guardar." },
+  { img:"fotos/4.jpg", when:"Un gran paso",       title:"Decidimos vivir juntos", text:"Cajas, llaves nuevas y un lugar que ya se siente nuestro." },
+  { img:"fotos/5.jpg", when:"Hoy",                title:"Nuestro hogar",          text:"Y ahora queremos compartirlo contigo." }
+];
+/* ============================== */
+
+const $ = id => document.getElementById(id);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.querySelectorAll("[data-gift]").forEach(a => a.href = FORM_URL);
+
+/* Fondo: elementos de casa flotando */
+(() => {
+  const S = 'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"';
+  const ICONS = [
+    `<svg viewBox="0 0 48 48" ${S}><path d="M6 22 24 7l18 15"/><path d="M11 18v23h26V18"/><path d="M20 41V29h8v12"/></svg>`,                       /* casa */
+    `<svg viewBox="0 0 48 48" ${S}><circle cx="15" cy="24" r="8"/><circle cx="15" cy="24" r="2.5"/><path d="M23 24h19M36 24v6M41 24v4"/></svg>`,        /* llave */
+    `<svg viewBox="0 0 48 48" ${S}><path d="M24 39C11 30 7 24 7 18a8.5 8.5 0 0 1 17-2 8.5 8.5 0 0 1 17 2c0 6-4 12-17 21Z"/></svg>`,                   /* corazón */
+    `<svg viewBox="0 0 48 48" ${S}><path d="M15 30h18l-3 12H18z"/><path d="M24 30V16"/><path d="M24 22c-6 0-10-4-10-10 6 0 10 4 10 10Z"/><path d="M24 18c0-6 4-10 10-10 0 6-4 10-10 10Z"/></svg>`, /* planta */
+    `<svg viewBox="0 0 48 48" ${S}><path d="M16 6h16l6 16H10z"/><path d="M24 22v16M16 42h16"/></svg>`,                                              /* lámpara */
+    `<svg viewBox="0 0 48 48" ${S}><path d="M10 18h22v14a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8z"/><path d="M32 22h3a5 5 0 0 1 0 10h-3"/><path d="M17 8c-2 3 2 4 0 7M24 8c-2 3 2 4 0 7"/></svg>`, /* taza */
+    `<svg viewBox="0 0 48 48" ${S}><path d="M10 22v-6a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v6"/><path d="M6 24a4 4 0 0 1 8 0v4h20v-4a4 4 0 0 1 8 0v10H6z"/><path d="M10 34v5M38 34v5"/></svg>`, /* sofá */
+    `<svg viewBox="0 0 48 48" ${S}><rect x="9" y="7" width="30" height="34" rx="2"/><path d="M24 7v34M9 24h30"/></svg>`,                             /* ventana */
+    `<svg viewBox="0 0 48 48" ${S}><rect x="12" y="6" width="24" height="36" rx="2"/><circle cx="30" cy="25" r="1.6" fill="currentColor"/><path d="M6 42h36"/></svg>` /* puerta */
+  ];
+  const colors = ["var(--sky)", "var(--grey)", "var(--sky-deep)"];
+  const box = $("bubbles"), n = innerWidth < 600 ? 12 : 20;
+  for (let i = 0; i < n; i++) {
+    const el = document.createElement("div"), size = 22 + Math.random()*30, r0 = Math.random()*40-20;
+    el.className = "h";
+    el.innerHTML = ICONS[i % ICONS.length];
+    el.style.cssText = `width:${size}px;height:${size}px;left:${(i/n*100 + Math.random()*6).toFixed(1)}%;color:${colors[i%3]};`
+      + `--op:${(0.35+Math.random()*0.35).toFixed(2)};--r0:${r0.toFixed(0)}deg;--r1:${(r0+(Math.random()*60-30)).toFixed(0)}deg;--dx:${(6+Math.random()*14).toFixed(0)}px;`
+      + `animation-duration:${16+Math.random()*14}s;animation-delay:${-Math.random()*28}s`;
+    box.appendChild(el);
+  }
+})();
+
+/* Palabras del título inicial entrando una a una */
+(() => {
+  const h = $("introTitle"); let i = 0;
+  h.innerHTML = h.innerHTML.split("<br>").map(line =>
+    line.trim().split(" ").map(w => `<span class="word" style="animation-delay:${(0.2 + i++*0.18).toFixed(2)}s">${w}</span>`).join(" ")
+  ).join("<br>");
+})();
+
+/* Nombres letra por letra */
+document.querySelectorAll(".hero h1 .name").forEach(el => {
+  const base = parseFloat(el.dataset.delay);
+  el.innerHTML = [...el.textContent].map((c,i) => `<span class="ch" style="animation-delay:${(0.4+base+i*0.07).toFixed(2)}s">${c}</span>`).join("");
+});
+
+/* Efecto onda en botones */
+document.addEventListener("pointerdown", e => {
+  const b = e.target.closest(".btn"); if (!b || reduce) return;
+  const r = b.getBoundingClientRect(), d = Math.max(r.width, r.height);
+  const s = document.createElement("span");
+  s.className = "ripple";
+  s.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;
+  b.appendChild(s); setTimeout(() => s.remove(), 650);
+});
+
+/* Confeti */
+const cv = $("confetti"), cx = cv.getContext("2d");
+function confetti(amount = 140){
+  if (reduce) return;
+  cv.width = innerWidth; cv.height = innerHeight;
+  const colors = ["#0bbbfa","#a6aaac","#ffffff","#7fdcfd","#0a7fae"];
+  const parts = Array.from({length:amount}, () => ({
+    x: innerWidth/2, y: innerHeight/2,
+    vx: (Math.random()-.5)*16, vy: Math.random()*-16-4,
+    w: 6+Math.random()*6, h: 8+Math.random()*8,
+    r: Math.random()*6, vr: (Math.random()-.5)*.3,
+    c: colors[Math.floor(Math.random()*colors.length)], heart: Math.random() < .2
+  }));
+  let frames = 0;
+  (function loop(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    parts.forEach(p => {
+      p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle = p.c;
+      if (p.heart){ cx.font = `${p.h*1.6}px sans-serif`; cx.fillText("♥",0,0); }
+      else cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      cx.restore();
+    });
+    if (++frames < 220) requestAnimationFrame(loop); else cx.clearRect(0,0,cv.width,cv.height);
+  })();
+}
+
+/* Historia de fotos */
+const bars = $("bars"), slidesBox = $("slides");
+let idx = -1, raf = null, t0 = 0;
+STORY.forEach((s, i) => {
+  bars.insertAdjacentHTML("beforeend", "<span><i></i></span>");
+  const el = document.createElement("div");
+  el.className = "slide";
+  el.innerHTML = `<div class="ph">Foto ${i+1}</div><div class="img"></div><div class="shade"></div>
+    <div class="cap"><small>${s.when}</small><h2>${s.title}</h2><p>${s.text}</p></div>`;
+  const probe = new Image();
+  probe.onload = () => { el.querySelector(".img").style.backgroundImage = `url('${s.img}')`; };
+  probe.src = s.img;
+  slidesBox.appendChild(el);
+});
+function show(n){
+  const slides = slidesBox.children, fills = bars.querySelectorAll("i");
+  if (n >= STORY.length) return endStory();
+  [...slides].forEach((el,i) => el.classList.toggle("on", i === n));
+  fills.forEach((f,i) => f.style.width = i < n ? "100%" : "0");
+  idx = n; t0 = performance.now();
+  cancelAnimationFrame(raf);
+  const tick = now => {
+    const p = Math.min(1, (now - t0) / SLIDE_MS);
+    fills[n].style.width = (p*100) + "%";
+    if (p < 1) raf = requestAnimationFrame(tick); else show(n+1);
+  };
+  raf = requestAnimationFrame(tick);
+}
+function endStory(){
+  cancelAnimationFrame(raf);
+  $("story").classList.add("hidden");
+  $("envelopeScreen").classList.remove("hidden");
+}
+$("startBtn").onclick = () => {
+  $("intro").classList.add("hidden");
+  $("story").classList.remove("hidden");
+  show(0);
+};
+$("story").addEventListener("click", e => { if (e.target.id !== "skipBtn") show(idx+1); });
+$("skipBtn").onclick = endStory;
+
+/* Sobre */
+$("envelope").onclick = function(){
+  if (this.classList.contains("open")) return;
+  this.classList.add("open");
+  setTimeout(() => this.classList.add("lift"), 1350);
+  setTimeout(() => confetti(160), 1700);
+  setTimeout(() => $("envelopeScreen").classList.add("leave"), 4200);
+  setTimeout(() => {
+    $("envelopeScreen").classList.add("hidden");
+    $("invite").classList.remove("hidden");
+    window.scrollTo(0,0);
+    observeReveals();
+  }, 4900);
+};
+
+/* Secciones que aparecen al hacer scroll */
+function observeReveals(){
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+  }), { threshold: .18 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+}
+
+/* Cuenta regresiva con animación en cada cambio */
+const pad = n => String(n).padStart(2,"0");
+function setNum(id, v){
+  const el = $(id);
+  if (el.textContent !== v){ el.textContent = v; el.classList.remove("tick"); void el.offsetWidth; el.classList.add("tick"); }
+}
+function countdown(){
+  let diff = Math.max(0, EVENT_DATE - new Date());
+  const d = Math.floor(diff/864e5); diff -= d*864e5;
+  const h = Math.floor(diff/36e5);  diff -= h*36e5;
+  const m = Math.floor(diff/6e4);   diff -= m*6e4;
+  setNum("d", pad(d)); setNum("h", pad(h)); setNum("m", pad(m)); setNum("s", pad(Math.floor(diff/1e3)));
+}
+countdown(); setInterval(countdown, 1000);
+
+$("noThanks").onclick = function(){ this.parentElement.classList.add("hidden"); $("giftOffer").classList.add("hidden"); $("seeYou").classList.remove("hidden"); };
+
+/* Confirmación de asistencia */
+document.querySelectorAll(".yesno .btn").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const status = $("rStatus"), nameInput = $("rName");
+    const nombre = nameInput.value.trim();
+    status.classList.remove("err");
+    if (!nombre) {
+      status.textContent = "Escribe tu nombre para registrar tu respuesta.";
+      status.classList.add("err");
+      nameInput.classList.remove("shake"); void nameInput.offsetWidth; nameInput.classList.add("shake");
+      nameInput.focus();
+      return;
+    }
+    const answer = btn.dataset.answer;
+    const data = new URLSearchParams({
+      nombre, asistencia: answer,
+      personas: answer === "Sí" ? $("rGuests").value : "0",
+      mensaje: $("rMsg").value.trim()
+    });
+    document.querySelectorAll(".yesno .btn").forEach(b => b.disabled = true);
+    status.textContent = "Registrando tu respuesta…";
+    try {
+      await fetch(RSVP_URL, { method: "POST", mode: "no-cors", body: data });
+      $("rsvpForm").classList.add("hidden");
+      const first = nombre.split(" ")[0];
+      if (answer === "Sí") {
+        $("yesTitle").textContent = `¡Gracias, ${first}!`;
+        $("doneYes").classList.remove("hidden");
+        confetti(180);
+      } else {
+        $("noTitle").textContent = `Te vamos a extrañar, ${first}`;
+        $("doneNo").classList.remove("hidden");
+      }
+      $("rsvpForm").closest("section").scrollIntoView({behavior: reduce ? "auto" : "smooth"});
+    } catch (e) {
+      status.textContent = "No se pudo registrar tu respuesta. Revisa tu conexión e inténtalo de nuevo.";
+      status.classList.add("err");
+      document.querySelectorAll(".yesno .btn").forEach(b => b.disabled = false);
+    }
+  });
+});
+</script>
+</body>
+</html>
