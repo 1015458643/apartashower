@@ -24,15 +24,15 @@
   --script:'Great Vibes', 'Segoe Script', cursive;
   --sans:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --hand:'Great Vibes', 'Segoe Script', cursive;
-  --b1:rgba(227,245,253,.92);--b2:rgba(255,255,255,.92);--b3:rgba(236,238,239,.94);--b4:rgba(216,241,252,.95);
+  --b1:rgba(214,241,253,.95);--b2:rgba(255,255,255,.95);--b3:rgba(200,236,252,.95);--b4:rgba(160,222,250,.96);
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(20,52,68,.92);--b2:rgba(27,46,56,.92);--b3:rgba(33,40,44,.94);--b4:rgba(16,58,78,.95); }
+  :root:not([data-theme="light"]){ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(16,52,72,.94);--b2:rgba(24,40,50,.94);--b3:rgba(14,62,88,.95);--b4:rgba(10,80,115,.96); }
 }
-:root[data-theme="dark"]{ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(20,52,68,.92);--b2:rgba(27,46,56,.92);--b3:rgba(33,40,44,.94);--b4:rgba(16,58,78,.95); }
+:root[data-theme="dark"]{ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(16,52,72,.94);--b2:rgba(24,40,50,.94);--b3:rgba(14,62,88,.95);--b4:rgba(10,80,115,.96); }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 html,body{margin:0;height:100%}
@@ -81,9 +81,10 @@ button,a,input,select,textarea{font:inherit}
 .bars i{display:block;height:100%;width:0;background:#fff}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease, transform 1s ease;transform:scale(1.04)}
 .slide.on{opacity:1;transform:none}
-.slide .img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.15)}
+.slide .bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(28px) brightness(.55) saturate(1.2)}
+.slide .img{position:absolute;inset:0;background-size:contain;background-repeat:no-repeat;background-position:center;transform:scale(1.06)}
 .slide.on .img{animation:kb 6s ease-out forwards}
-@keyframes kb{to{transform:scale(1) translate(-1.5%,-1%)}}
+@keyframes kb{to{transform:scale(1)}}
 .slide .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.5);background:linear-gradient(160deg,#0a7fae,#0d1a21 70%)}
 .slide .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,20,.9) 0%,rgba(5,15,20,0) 60%)}
 .cap{position:absolute;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));padding:0 28px;color:#fff;max-width:640px;margin:0 auto}
@@ -352,26 +353,23 @@ footer{text-align:center;color:var(--sky-deep);padding:20px 22px 70px;font-famil
       <dt>Fecha</dt><dd>Domingo 22 de noviembre de 2026</dd>
       <dt>Hora</dt><dd>3:00 p.m.</dd>
       <dt>Lugar</dt><dd>Salón comunal de la Sociedad San Pedro, barrio Las Ferias</dd>
-      <dt>Dirección</dt><dd>Cra. 69k #7762, Bogotá</dd>
-      <dt>Vestimenta</dt><dd>Ven como te sientas cómodo</dd>
+      <dt>Dirección</dt><dd>Cra. 69k #77-62, Bogotá</dd>
     </dl>
     <a class="btn ghost" target="_blank" rel="noopener"
-       href="https://www.google.com/maps/search/?api=1&query=Cra.%2069k%20%237762%2C%20Las%20Ferias%2C%20Bogot%C3%A1"><span class="map-pin">📍</span> Ver ubicación en el mapa</a>
+       href="https://www.google.com/maps/search/?api=1&query=Cra.%2069k%20%2377-62%2C%20Bogot%C3%A1"><span class="map-pin">📍</span> Ver ubicación en el mapa</a>
   </div></section>
 
 
   <section class="rsvp band band-3"><div class="wrap reveal"><span class="kicker">Confirmación</span>
     <h2>¿Nos acompañas?</h2>
-    <p>Tu compañía es lo más importante. Escribe tu nombre y cuéntanos si podrás venir. Si confirmas, te mostraremos nuestra lista de regalos.</p>
+    <p>Tu compañía es lo más importante. Escribe tu nombre y cuéntanos si podrás venir.</p>
     <form id="rsvpForm" class="rsvp-form" novalidate>
       <label for="rName">Tu nombre</label>
-      <input id="rName" name="nombre" autocomplete="name" placeholder="Nombre y apellido" required>
+      <input id="rName" name="nombre" autocomplete="name" placeholder="Nombre" required>
       <label for="rGuests">¿Cuántas personas vienen contigo? (incluyéndote)</label>
       <select id="rGuests" name="personas">
         <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
       </select>
-      <label for="rMsg">Un mensaje para nosotros (opcional)</label>
-      <textarea id="rMsg" name="mensaje" rows="3"></textarea>
       <p class="q">¿Asistirás al apartashower?</p>
       <div class="yesno">
         <button type="button" class="btn" data-answer="Sí">Sí, ahí estaré</button>
@@ -523,10 +521,10 @@ STORY.forEach((s, i) => {
   bars.insertAdjacentHTML("beforeend", "<span><i></i></span>");
   const el = document.createElement("div");
   el.className = "slide";
-  el.innerHTML = `<div class="ph">Foto ${i+1}</div><div class="img"></div><div class="shade"></div>
+  el.innerHTML = `<div class="ph">Foto ${i+1}</div><div class="bg"></div><div class="img"></div><div class="shade"></div>
     <div class="cap"><small>${s.when}</small><h2>${s.title}</h2><p>${s.text}</p></div>`;
   const probe = new Image();
-  probe.onload = () => { el.querySelector(".img").style.backgroundImage = `url('${s.img}')`; };
+  probe.onload = () => { el.querySelector(".img").style.backgroundImage = el.querySelector(".bg").style.backgroundImage = `url('${s.img}')`; };
   probe.src = s.img;
   slidesBox.appendChild(el);
 });
@@ -614,7 +612,7 @@ document.querySelectorAll(".yesno .btn").forEach(btn => {
     const data = new URLSearchParams({
       nombre, asistencia: answer,
       personas: answer === "Sí" ? $("rGuests").value : "0",
-      mensaje: $("rMsg").value.trim()
+      mensaje: ""
     });
     document.querySelectorAll(".yesno .btn").forEach(b => b.disabled = true);
     status.textContent = "Registrando tu respuesta…";
