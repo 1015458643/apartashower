@@ -253,6 +253,27 @@ footer{text-align:center;color:var(--sky-deep);padding:20px 22px 70px;font-famil
   .hero .house .draw{stroke-dashoffset:0}.hero .house .heart{transform:none}
   #bubbles{display:none}
 }
+
+/* ===== Rediseño: fondo blanco degradado + secciones en tarjeta ===== */
+body{background:linear-gradient(180deg,#ffffff 0%,#f3fbff 35%,#e4f6fe 70%,#d3f0fd 100%) fixed}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body{background:linear-gradient(180deg,#101d24,#13283a 60%,#0e3550) fixed}}
+.band,.band-1,.band-2,.band-3,.band-4{background:none!important;padding:22px 16px}
+.band:first-of-type{padding-top:10px}
+.band .wrap{position:relative;max-width:620px;background:var(--paper);border-radius:28px;padding:48px 26px 44px;
+  box-shadow:0 1px 0 rgba(11,187,250,.12),0 30px 60px -36px rgba(10,110,160,.45);border:1px solid rgba(11,187,250,.14);overflow:hidden}
+.band .wrap::before{content:"";position:absolute;left:50%;top:0;width:120px;height:4px;margin-left:-60px;border-radius:0 0 4px 4px;background:var(--sky)}
+.band .wrap.reveal{transform:translateY(46px) scale(.97)}
+.band .wrap.reveal.in{transform:none}
+.count div{background:linear-gradient(180deg,#f2fbff,#e2f5fe);box-shadow:none;border:1px solid rgba(11,187,250,.18)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .count div{background:#173a4a}}
+.details{gap:0!important}
+.details dt,.details dd{padding:14px 0;border-bottom:1px solid var(--line)}
+.details dt:last-of-type,.details dd:last-of-type{border-bottom:0}
+.details dd{padding-left:18px}
+.band-4 .wrap{background:linear-gradient(180deg,var(--paper),var(--paper) 55%,rgba(11,187,250,.07))}
+footer{background:none!important;padding:34px 22px 80px}
+.hero h1{text-shadow:0 2px 24px rgba(11,187,250,.18)}
+@media (max-width:420px){.band .wrap{padding:40px 18px 36px;border-radius:24px}}
 </style>
 </head>
 <body>
@@ -409,8 +430,8 @@ footer{text-align:center;color:var(--sky-deep);padding:20px 22px 70px;font-famil
 <script>
 
 /* ========= EDITA AQUÍ ========= */
-const FORM_URL = "https://script.google.com/macros/s/AKfycbz_qFMELifauv8RC0iUdElVRqtFTN0X0ea_5RwM0iDEcR0mwvlrriIT07W1G5YspEygyQ/exec";
-const RSVP_URL = "https://script.google.com/macros/s/AKfycbwwgUOORaNcxeMFIudXyovixTvOGaLPHAUxBZRdTuGgI2QJcZ7_Hh728G75pyTTotKX0w/exec";
+const FORM_URL = "https://script.google.com/macros/s/AKfycbxcCrrYRdPZfZ_yafOa8ta_R7IWgzZsW2tLQGOe35U0xEiwbF8svmHNJHUoezPPhen3xA/exec";
+const RSVP_URL = "https://script.google.com/macros/s/AKfycbxcCrrYRdPZfZ_yafOa8ta_R7IWgzZsW2tLQGOe35U0xEiwbF8svmHNJHUoezPPhen3xA/exec";
 const EVENT_DATE = new Date("2026-11-22T15:00:00-05:00");
 const SLIDE_MS = 4000;
 
