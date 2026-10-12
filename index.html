@@ -18,8 +18,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 :root{
+  color-scheme:light;
   --sky:#0bbbfa; --sky-deep:#0a7fae; --sky-soft:#d9f4fe; --grey:#a6aaac; --mist:#eef4f7;
-  --ink:#1f3440; --paper:#ffffff; --line:#d5dde1;
+  --ink:#1f3440; --paper:#ffffff; --line:#d6f0fb;
   --serif:'Cormorant Garamond', 'Garamond', Georgia, serif;
   --script:'Great Vibes', 'Segoe Script', cursive;
   --sans:'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -29,10 +30,6 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(16,52,72,.94);--b2:rgba(24,40,50,.94);--b3:rgba(14,62,88,.95);--b4:rgba(10,80,115,.96); }
-}
-:root[data-theme="dark"]{ --mist:#13232c; --ink:#e6eef2; --paper:#1b2e38; --line:#2e4450; --sky-deep:#5fd3fc; --sky-soft:#173a4a; --b1:rgba(16,52,72,.94);--b2:rgba(24,40,50,.94);--b3:rgba(14,62,88,.95);--b4:rgba(10,80,115,.96); }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 html,body{margin:0;height:100%}
@@ -111,8 +108,6 @@ button,a,input,select,textarea{font:inherit}
 @keyframes leafSway{to{transform:rotate(6deg)}}
 .env-kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:#6b7f8a;margin:0 0 .4rem;opacity:0;animation:fade .8s .3s forwards}
 .env-title{max-width:12ch;font-family:'Great Vibes',var(--hand);font-weight:400;font-size:clamp(2.6rem,11vw,3.4rem);line-height:1.1;color:#3d5563;margin:0 0 2rem;opacity:0;animation:capIn 1s .5s forwards;transform:translateY(16px)}
-:root[data-theme="dark"] .env-title{max-width:12ch;color:var(--ink)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .env-title{max-width:12ch;color:var(--ink)}}
 
 .envelope{--env:#6f9fb5;--env-d:#55879e;--env-dd:#467489;position:relative;width:min(300px,78vw);aspect-ratio:3/2;border:0;padding:0;background:var(--env-d);cursor:pointer;perspective:1000px;box-shadow:0 26px 40px -22px rgba(20,60,85,.55);animation:arrive 1.1s .7s cubic-bezier(.2,.8,.2,1) backwards, bob 3.8s 1.8s ease-in-out infinite}
 @keyframes arrive{from{transform:translateY(80px) rotate(-8deg) scale(.8);opacity:0}}
@@ -255,17 +250,15 @@ footer{text-align:center;color:var(--sky-deep);padding:20px 22px 70px;font-famil
 }
 
 /* ===== Rediseño: fondo blanco degradado + secciones en tarjeta ===== */
-body{background:linear-gradient(180deg,#ffffff 0%,#f3fbff 35%,#e4f6fe 70%,#d3f0fd 100%) fixed}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body{background:linear-gradient(180deg,#101d24,#13283a 60%,#0e3550) fixed}}
+body{background:linear-gradient(180deg,#ffffff 0%,#e9f8ff 50%,#cdeffd 100%) fixed}
 .band,.band-1,.band-2,.band-3,.band-4{background:none!important;padding:22px 16px}
 .band:first-of-type{padding-top:10px}
 .band .wrap{position:relative;max-width:620px;background:var(--paper);border-radius:28px;padding:48px 26px 44px;
-  box-shadow:0 1px 0 rgba(11,187,250,.12),0 30px 60px -36px rgba(10,110,160,.45);border:1px solid rgba(11,187,250,.14);overflow:hidden}
+  box-shadow:0 18px 40px -28px rgba(10,110,160,.55);border:1px solid #d6f0fb;overflow:hidden}
 .band .wrap::before{content:"";position:absolute;left:50%;top:0;width:120px;height:4px;margin-left:-60px;border-radius:0 0 4px 4px;background:var(--sky)}
 .band .wrap.reveal{transform:translateY(46px) scale(.97)}
 .band .wrap.reveal.in{transform:none}
-.count div{background:linear-gradient(180deg,#f2fbff,#e2f5fe);box-shadow:none;border:1px solid rgba(11,187,250,.18)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .count div{background:#173a4a}}
+.count div{background:#f3fbff;box-shadow:none;border:1px solid #cdeefc}
 .details{gap:0!important}
 .details dt,.details dd{padding:14px 0;border-bottom:1px solid var(--line)}
 .details dt:last-of-type,.details dd:last-of-type{border-bottom:0}
