@@ -85,7 +85,7 @@ button,a,input,select,textarea{font:inherit}
 @keyframes kb{to{transform:scale(1)}}
 .slide .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.5);background:linear-gradient(160deg,#0a7fae,#0d1a21 70%)}
 .slide .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,20,.9) 0%,rgba(5,15,20,0) 60%)}
-.cap{position:absolute;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));padding:0 28px;color:#fff;max-width:640px;margin:0 auto}
+.cap{position:absolute;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));padding:0 28px;color:#fff;max-width:640px;margin:0 auto}
 .cap > *{opacity:0;transform:translateY(24px)}
 .slide.on .cap > *{animation:capIn .8s cubic-bezier(.2,.8,.2,1) forwards}
 .slide.on .cap h2{animation-delay:.25s}
@@ -177,7 +177,7 @@ button,a,input,select,textarea{font:inherit}
 .hero h1 .amp{display:block;color:var(--sky);font-family:var(--serif);font-style:normal;font-weight:500;font-size:.5em;margin:.05em 0;opacity:0;animation:ampIn 1s 1.3s cubic-bezier(.3,1.6,.5,1) forwards}
 @keyframes ampIn{from{opacity:0;transform:scale(.2) rotate(-40deg)}to{opacity:1;transform:none}}
 .hero .lead,.hero .date,.scroll-cue{opacity:0;animation:capIn .9s forwards}
-.hero .lead{font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.4;margin:1.2rem 0 .3rem;max-width:30ch;animation-delay:2.2s;transform:translateY(20px)}
+.hero .lead{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.45;margin:1.2rem 0 .3rem;max-width:34ch;animation-delay:2.2s;transform:translateY(20px)}
 .hero .date{color:var(--sky-deep);font-weight:500;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin:0;animation-delay:2.5s;transform:translateY(20px)}
 .scroll-cue{margin-top:2.6rem;color:var(--grey);font-size:.9rem;animation-delay:3s!important}
 .scroll-cue .arrow{display:block;margin:.4rem auto 0;width:22px;height:34px;border:2px solid var(--grey);border-radius:12px;position:relative}
@@ -270,6 +270,11 @@ footer{background:none!important;padding:34px 22px 80px}
 @media (max-width:420px){.band .wrap{padding:40px 18px 36px;border-radius:24px}}
 .amp-r{font-family:'Cormorant Garamond',Georgia,serif;font-style:normal;font-weight:500;font-size:.85em;margin:0 .12em;color:var(--sky)}
 .count-date{color:var(--sky-deep);font-weight:500;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;margin:-.4rem auto 1.2rem}
+#story{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.pause{position:absolute;right:18px;top:calc(30px + env(safe-area-inset-top,0px));z-index:3;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);color:#fff;border:0;border-radius:999px;padding:.45em 1em;font-size:.8rem;cursor:pointer}
+#story.paused .slide.on .img{animation-play-state:paused}
+#story.paused .bars i{background:var(--sky)}
+.hint{max-width:58%;line-height:1.3}
 </style>
 </head>
 <body>
@@ -289,7 +294,8 @@ footer{background:none!important;padding:34px 22px 80px}
 <div id="story" class="hidden" aria-live="polite">
   <div class="bars" id="bars"></div>
   <div id="slides"></div>
-  <span class="hint">Toca para avanzar</span>
+  <span class="hint">Toca a los lados para avanzar o volver</span>
+  <button class="pause" id="pauseBtn" aria-pressed="false">❚❚ Pausar</button>
   <button class="skip" id="skipBtn">Saltar</button>
 </div>
 
@@ -317,7 +323,7 @@ footer{background:none!important;padding:34px 22px 80px}
       <path d="M58 20c16 2 28 10 32 20" stroke="#7d8a90" stroke-width="1.2" fill="none"/></g>
     </svg>
     <p class="env-kicker">Mensaje especial</p>
-    <h2 class="env-title">Tenemos algo que contarte…</h2>
+    <h2 class="env-title">Esta carta es para ti…</h2>
     <button class="envelope" id="envelope" aria-label="Abrir la invitación">
       <div class="letter">
         <span class="l-names">Juan <span class="amp-r">&amp;</span> Alejandra</span>
@@ -349,22 +355,11 @@ footer{background:none!important;padding:34px 22px 80px}
       <path class="heart" d="M42 62c-9-6-12-10-12-14a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 4-3 8-12 14Z" fill="var(--sky)"/>
     </svg>
     <h1><span class="name" data-delay="0">Juan</span><span class="amp">&</span><span class="name" data-delay="1.5">Alejandra</span></h1>
-    <p class="lead">Un hogar no se construye con paredes, sino con los días que compartimos. Nos encantaría que nos acompañes a celebrarlo.</p>
+    <p class="lead">Un hogar no se construye con paredes, sino con amor, sueños y momentos compartidos. Hoy comenzamos una nueva etapa juntos, con la ilusión de crear nuestro propio espacio y llenarlo de risas, complicidad y recuerdos inolvidables.</p>
     <p class="scroll-cue">Desliza para ver los detalles<span class="arrow"></span></p>
   </header>
 
-  <section class="band band-1"><div class="wrap reveal"><span class="kicker">Cuenta regresiva</span>
-    <h2>Falta poco</h2>
-    <p class="count-date">Domingo 22 de noviembre de 2026<br>3:00 p.m.</p>
-    <div class="count stagger" id="count">
-      <div><b id="d">00</b><span>días</span></div>
-      <div style="transition-delay:.1s"><b id="h">00</b><span>horas</span></div>
-      <div style="transition-delay:.2s"><b id="m">00</b><span>min</span></div>
-      <div style="transition-delay:.3s"><b id="s">00</b><span>seg</span></div>
-    </div>
-  </div></section>
-
-  <section class="band band-2"><div class="wrap reveal">
+  <section class="band band-1"><div class="wrap reveal">
     <h2>Dónde y cuándo</h2>
     <dl class="details">
       <dt>Fecha</dt><dd>Domingo 22 de noviembre de 2026</dd>
@@ -374,6 +369,16 @@ footer{background:none!important;padding:34px 22px 80px}
     </dl>
     <a class="btn ghost" target="_blank" rel="noopener"
        href="https://www.google.com/maps/search/?api=1&query=Cra.%2069k%20%2377-62%2C%20Bogot%C3%A1"><span class="map-pin">📍</span> Ver ubicación en el mapa</a>
+  </div></section>
+
+  <section class="band band-2"><div class="wrap reveal"><span class="kicker">Cuenta regresiva</span>
+    <h2>Falta poco</h2>
+    <div class="count stagger" id="count">
+      <div><b id="d">00</b><span>días</span></div>
+      <div style="transition-delay:.1s"><b id="h">00</b><span>horas</span></div>
+      <div style="transition-delay:.2s"><b id="m">00</b><span>min</span></div>
+      <div style="transition-delay:.3s"><b id="s">00</b><span>seg</span></div>
+    </div>
   </div></section>
 
 
@@ -429,7 +434,7 @@ footer{background:none!important;padding:34px 22px 80px}
 const FORM_URL = "https://script.google.com/macros/s/AKfycbxcCrrYRdPZfZ_yafOa8ta_R7IWgzZsW2tLQGOe35U0xEiwbF8svmHNJHUoezPPhen3xA/exec";
 const RSVP_URL = "https://script.google.com/macros/s/AKfycbxcCrrYRdPZfZ_yafOa8ta_R7IWgzZsW2tLQGOe35U0xEiwbF8svmHNJHUoezPPhen3xA/exec";
 const EVENT_DATE = new Date("2026-11-22T15:00:00-05:00");
-const SLIDE_MS = 4000;
+const SLIDE_MS = 6500;
 
 /* Fotos de la historia: carpeta "fotos" junto a este archivo.
    Si una foto no existe, se muestra un fondo azul de reemplazo. */
@@ -545,19 +550,29 @@ STORY.forEach((s, i) => {
   probe.src = s.img;
   slidesBox.appendChild(el);
 });
+let elapsed = 0, last = 0, paused = false;
 function show(n){
   const slides = slidesBox.children, fills = bars.querySelectorAll("i");
+  if (n < 0) n = 0;
   if (n >= STORY.length) return endStory();
   [...slides].forEach((el,i) => el.classList.toggle("on", i === n));
   fills.forEach((f,i) => f.style.width = i < n ? "100%" : "0");
-  idx = n; t0 = performance.now();
+  idx = n; elapsed = 0; last = performance.now();
   cancelAnimationFrame(raf);
   const tick = now => {
-    const p = Math.min(1, (now - t0) / SLIDE_MS);
+    if (!paused) elapsed += now - last;
+    last = now;
+    const p = Math.min(1, elapsed / SLIDE_MS);
     fills[n].style.width = (p*100) + "%";
     if (p < 1) raf = requestAnimationFrame(tick); else show(n+1);
   };
   raf = requestAnimationFrame(tick);
+}
+function setPaused(v){
+  paused = v;
+  $("story").classList.toggle("paused", v);
+  $("pauseBtn").textContent = v ? "▶ Continuar" : "❚❚ Pausar";
+  $("pauseBtn").setAttribute("aria-pressed", v);
 }
 function endStory(){
   cancelAnimationFrame(raf);
@@ -569,7 +584,24 @@ $("startBtn").onclick = () => {
   $("story").classList.remove("hidden");
   show(0);
 };
-$("story").addEventListener("click", e => { if (e.target.id !== "skipBtn") show(idx+1); });
+/* Mantener presionado = pausa. Toque corto: derecha avanza, izquierda retrocede */
+let downAt = 0, holdTimer = null, held = false;
+$("story").addEventListener("pointerdown", e => {
+  if (e.target.closest("button")) return;
+  downAt = performance.now(); held = false;
+  holdTimer = setTimeout(() => { held = true; setPaused(true); }, 220);
+});
+$("story").addEventListener("pointerup", e => {
+  if (e.target.closest("button")) return;
+  clearTimeout(holdTimer);
+  if (held) { setPaused(false); return; }
+  const left = e.clientX < innerWidth / 3;
+  if (paused) setPaused(false);
+  show(left ? idx - 1 : idx + 1);
+});
+$("story").addEventListener("pointercancel", () => { clearTimeout(holdTimer); if (held) setPaused(false); });
+$("story").addEventListener("contextmenu", e => e.preventDefault());
+$("pauseBtn").onclick = () => setPaused(!paused);
 $("skipBtn").onclick = endStory;
 
 /* Sobre */
@@ -578,13 +610,13 @@ $("envelope").onclick = function(){
   this.classList.add("open");
   setTimeout(() => this.classList.add("lift"), 1350);
   setTimeout(() => confetti(160), 1700);
-  setTimeout(() => $("envelopeScreen").classList.add("leave"), 4200);
+  setTimeout(() => $("envelopeScreen").classList.add("leave"), 7200);
   setTimeout(() => {
     $("envelopeScreen").classList.add("hidden");
     $("invite").classList.remove("hidden");
     window.scrollTo(0,0);
     observeReveals();
-  }, 4900);
+  }, 7900);
 };
 
 /* Secciones que aparecen al hacer scroll */
